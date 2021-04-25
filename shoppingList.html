@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link href="sylelist.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+	<title>Food Kart</title>
+</head>
+<body>
+
+
+<header>
+<a href="#" class="login-button"><span>Log In</span></a>
+</header>
+<div class="sidenav">
+<a href="index.html">Home<span><i class="fas fa-home"></i></span></a>
+<a href="mR.html">My Recipes<span><i class="fas fa-utensils"></i></span></a>
+<a href="shoppingList.html">Grocery List<span><i class="fas fa-shopping-cart"></i></span></a>
+<a href="about.html">About<span><i class="fas fa-info-circle"></i></span></a>
+</div>
+
+<div class="logo">
+<h1><span>F</span>ood<span>K</span>art<i class="fab fa-opencart"></i></span></h1>
+</div>
+
+    <div class="label">
+            <h1>Shopping List</h1>
+
+            
+            
+            <form action="/data" method="post">
+                <p><input id="textbox" type="text" name="item"></p>
+                <input id="addbtn" type="submit" value="Add data">
+            </form>
+            
+            
+            
+        <div class="lists">
+		 <ol>
+                {% for data in datas %}
+                    <li>
+                        {% if data.done %} <strike> {% endif %}{{ data.item }} {% if data.done %} </strike>{% endif %}
+                        <a href="/delete/{{ data.id }}"><span>Delete</span></a>
+                    </li>
+                {% endfor %}
+            </ol>
+		</div>    
+           
+        </div>
+</body>
+</html>
